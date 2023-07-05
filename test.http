@@ -1,0 +1,71 @@
+#################
+#### USER #######
+#################
+
+### Créer un user
+POST http://localhost:3005/register
+content-type: application/json
+
+{
+    "email": "rachel@rachel.com",
+    "pseudo": "Rachel",
+    "password": "rachel",
+    "passwordConfirm" : "rachel"
+}
+
+#################
+#### GROUP ######
+#################
+
+### trouver un group
+GET http://localhost:3005/group/1
+content-type: application/json
+
+### trouver tous les groupes d'un utilisateur
+GET http://localhost:3005/user/Rachel/group
+content-type: application/json
+
+### Créer un group
+POST http://localhost:3005/group
+content-type: application/json
+
+{
+    "name": "Les amigo",
+    "description": "Notre groupe de recette entre amis"
+}
+
+### ajouter un user à un group
+POST http://localhost:3005/group/1/Rachel
+content-type: application/json
+
+### enlever un user d'un group
+DELETE http://localhost:3005/group/1/Rachel
+content-type: application/json
+
+#################
+#### RECIPE ######
+#################
+
+### trouver une recette
+GET http://localhost:3005/recipe/2
+content-type: application/json
+
+### trouver toutes les recettes d'un user
+GET http://localhost:3005/user/Rachel/recipe
+content-type: application/json
+
+### Créer une recette
+POST http://localhost:3005/recipe
+content-type: application/json
+
+{
+    "title": "tarte au poireau",
+    "description_etape": ["mélanger les ingrédients", "faire cuire la tarte"],
+    "ingredient_quantity": [4, 1],
+    "ingredient_name":["poireau", "pâte"]
+
+}
+
+### supprimer une recette
+DELETE http://localhost:3005/recipe/1/
+content-type: application/json
