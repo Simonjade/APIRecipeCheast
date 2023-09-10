@@ -4,7 +4,7 @@
 ### MAJ 10/09 
 This project is currently under construction/refactoring.
 Since the beginning of this project, I have evolved in my use of SQL. As a result, I am currently revisiting each of my features one by one. 
-New elements are being implemented, such as SQL functions (already implemented for user CRUD), unit tests, a script to initialize the project, the utilization of schema/role/group structures in my database, JWT authentication, protected routes, and enhanced logging and error handling. :bangbang: :bangbang:
+New elements are being implemented, such as SQL - PLpgSQL functions (already implemented for user CRUD) for all of my routes, unit tests, a script to initialize the project, use of schema/role/group structures in my database, JWT authentication, protected routes, and enhanced logging and error handling. :bangbang: :bangbang:
 
 This API was made for a personal project, a website where you can share your recipe with a group, your family, your friend. Several route was made. The notice was outside.
 
