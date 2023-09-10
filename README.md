@@ -1,6 +1,6 @@
 # API Recipe Cheast
 
-This project is currently under construction/refactoring. Since the beginning of this project, I have evolved in my use of SQL, and new things are therefore being implemented like functions for all request, unit test, use of schema in my bdd, and JWT authentication.
+:bangbang: :bangbang: This project is currently under construction/refactoring. Since the beginning of this project, I have evolved in my use of SQL, and new things are therefore being implemented like functions in SQL or PL/pgSQL for all request, unit test, use of schema in my bdd, and JWT authentication.
 
 This API was made for a personal project, a website where you can share your recipe with a group, your family, your friend. Several route was made. The notice was outside.
 
