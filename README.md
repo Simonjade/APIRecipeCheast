@@ -1,16 +1,18 @@
 # API Recipe Cheast
 
+This project is currently under construction/refactoring. Since the beginning of this project, I have evolved in my use of SQL, and new things are therefore being implemented like functions for all request, unit test, use of schema in my bdd, and JWT authentication.
+
 This API was made for a personal project, a website where you can share your recipe with a group, your family, your friend. Several route was made. The notice was outside.
 
 ## Register
 
-### router.post("/register")
+### router.post("/user")
 
 This route was to register a user in the BDD.
 
 ## Login
 
-### router.post("/login", userController.getLogin)
+### router.post("user/login")
 
 This route was to login a user in the session
 
