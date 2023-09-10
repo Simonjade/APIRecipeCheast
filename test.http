@@ -7,10 +7,10 @@ POST http://localhost:3005/register
 content-type: application/json
 
 {
-    "email": "rachel@rachel.com",
+    "email": "raachel@raachel.com",
     "pseudo": "Rachel",
-    "password": "rachel",
-    "passwordConfirm" : "rachel"
+    "password": "raachel",
+    "passwordConfirm" : "raachel"
 }
 
 #################

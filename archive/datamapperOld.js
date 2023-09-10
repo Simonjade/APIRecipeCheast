@@ -170,7 +170,7 @@ const dataMapper = {
   async getOneRecipe(id) {
     const query = {
       text: `SELECT recipe.id, recipe.title, 
-      json_agg(etape.description) as etape_description,
+      ARRAY_AGG(etape.description) as etape_description,
       (
         SELECT json_agg(json_build_object('quantity', quantity.number, 'name', ingredient.name))
         FROM ingredient
@@ -189,11 +189,25 @@ const dataMapper = {
   },
 
   async getUserRecipe(pseudo) {
+    /* SELECT recipe.id, recipe.title, 
+      ARRAY_AGG(etape.description) as etape_description,
+      ARRAY(
+        SELECT json_build_object('quantity', quantity.number, 'name', ingredient.name)
+        FROM ingredient
+        JOIN quantity ON quantity.id = ingredient.quantity_id
+        JOIN recipe_has_ingredient ON recipe_has_ingredient.ingredient_id = ingredient.id
+        WHERE recipe_has_ingredient.recipe_id = recipe.id
+        GROUP BY quantity.number, ingredient.name
+      ) as ingredients 
+    FROM recipe 
+    JOIN etape ON recipe.id = etape.recipe_id 
+    WHERE recipe.user_id=(SELECT id FROM "user" WHERE pseudo=$1)
+    GROUP BY recipe.id;*/
     const query = {
       text: `SELECT recipe.id, recipe.title, 
-      json_agg(etape.description) as etape_description,
+      ARRAY_AGG(etape.description) as etape_description,
       (
-        SELECT json_agg(json_build_object('quantity', quantity.number, 'name', ingredient.name))
+        SELECT json_agg (json_build_object('quantity', quantity.number, 'name', ingredient.name))
         FROM ingredient
         JOIN quantity ON quantity.id = ingredient.quantity_id
         JOIN recipe_has_ingredient ON recipe_has_ingredient.ingredient_id = ingredient.id

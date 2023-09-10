@@ -1,10 +1,10 @@
-const dataMapper = require("../dataMapper");
+const { groupDatamapper } = require("../model");
 
 const groupController = {
   getOneGroup: async (req, res) => {
     try {
       const GroupId = parseInt(req.params.groupId);
-      const group = await dataMapper.findOneGroup(GroupId);
+      const group = await groupDatamapper.findOneGroup(GroupId);
       if (!group) {
         res.status(404).json("Cant find this group");
       } else {
@@ -18,7 +18,7 @@ const groupController = {
   getAllUserGroup: async (req, res) => {
     try {
       const pseudo = req.params.userPseudo;
-      const allGroup = await dataMapper.getGroupUsers(pseudo);
+      const allGroup = await groupDatamapper.getGroupUsers(pseudo);
       if (allGroup) {
         res.status(200).json(allGroup);
       } else {
@@ -55,7 +55,7 @@ const groupController = {
     try {
       const pseudo = req.params.userPseudo;
       const id = req.params.groupId;
-      const add = await dataMapper.insertUserinGroup(pseudo, id);
+      const add = await groupDatamapper.insertUserinGroup(pseudo, id);
       res.status(200).json(add);
     } catch (error) {
       console.trace(error);
@@ -67,7 +67,7 @@ const groupController = {
     try {
       const pseudo = req.params.userPseudo;
       const id = req.params.groupId;
-      const deleteted = await dataMapper.deleteUserinGroup(pseudo, id);
+      const deleteted = await groupDatamapper.deleteUserinGroup(pseudo, id);
       res.status(200).json(deleteted);
     } catch (error) {
       console.trace(error);

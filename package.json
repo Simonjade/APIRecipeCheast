@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
+    "dev": "DEBUG=controllers,model,errorHandler node index.js",
     "tailwind:css": "postcss public/css/tailwind.css -o public/css/style.css"
   },
   "keywords": [],
@@ -13,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "debug": "^4.3.4",
     "dotenv": "^16.1.4",
     "express": "^4.18.2",
     "express-session": "^1.17.3",

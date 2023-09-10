@@ -1,0 +1,4 @@
+13:59:20.211;Aucune recette n'a été trouvé;Error: Aucune recette n'a été trouvé
+    at Object.getOneRecipe (/var/www/html/APIRecipeCheast/app/model/recipe.js:31:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async getOneRecipe (/var/www/html/APIRecipeCheast/app/controller/recipeController.js:6:31)

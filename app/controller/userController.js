@@ -1,4 +1,4 @@
-const dataMapper = require("../dataMapper");
+const { userDatamapper } = require("../model");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
@@ -11,7 +11,7 @@ const userController = {
       try {
         const hashedPass = await bcrypt.hash(postedUser.password, saltRounds);
         postedUser.password = hashedPass;
-        const createdUser = await dataMapper.registerUser(postedUser);
+        const createdUser = await userDatamapper.registerUser(postedUser);
         if (createdUser != false) {
           console.log("usercréé");
           res.json(createdUser);
@@ -27,26 +27,21 @@ const userController = {
   getLogin: async (req, res) => {
     const loggedUser = req.body;
     try {
-      const user = await dataMapper.getUser(loggedUser.email);
+      const user = await userDatamapper.getUser(loggedUser.email);
       if (user) {
         const matchPassword = await bcrypt.compare(
           loggedUser.password,
           user.password
         );
         if (!matchPassword) {
-          res.render("loginPage", {
-            error: "Utilisateur ou mot de passe incorrect",
-          });
+          res.json("Utilisateur ou mot de passe incorrect");
         } else {
           req.session.user = user;
           delete req.session.user.password;
           console.log(req.session.user);
-          res.redirect("/");
         }
       } else {
-        res.render("loginPage", {
-          error: "Utilisateur ou mot de passe incorrect",
-        });
+        res.json("Utilisateur ou mot de passe incorrect");
       }
     } catch (error) {
       console.trace(error);

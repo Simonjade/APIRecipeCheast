@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const mainController = require("./controllers/mainController.js");
-const userController = require("./controllers/userController.js");
-const recipeController = require("./controllers/recipeController.js");
-const groupController = require("./controllers/groupController.js");
+const mainController = require("./controller/mainController.js");
+const userController = require("./controller/userController.js");
+const recipeController = require("./controller/recipeController.js");
+const groupController = require("./controller/groupController.js");
 
 //REGISTER
 router.post("/register", userController.createAccount);
